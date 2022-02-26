@@ -1,0 +1,49 @@
+{
+    "name": "bogiesoft/laravel-line-sdk",
+    "description": "LINE SDK for Laravel",
+    "keywords": [
+        "laravel",
+        "line",
+        "bot",
+        "sdk"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "laravel/socialite": "^5.0",
+        "illuminate/support": "*",
+        "linecorp/line-bot-sdk": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bogiesoft\\Line\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bogiesoft",
+            "email": "bogiesoft@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bogiesoft\\Line\\Providers\\LineServiceProvider",
+                "Bogiesoft\\Line\\Providers\\LineSocialiteServiceProvider",
+                "Bogiesoft\\Line\\Providers\\RouteServiceProvider",
+                "Bogiesoft\\Line\\Providers\\MacroServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
