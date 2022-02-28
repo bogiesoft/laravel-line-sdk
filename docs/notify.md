@@ -134,7 +134,38 @@ use Bogiesoft\Line\Facades\LineNotify;
 
 $res = LineNotify::withToken($token)->notify($params);
 $res = LineNotify::withToken($token)->status();
-$res = LineNotify::withToken($token)->revoke();
+$res = LineNotify::withToken($token)->revoke();  // ยกเลิก Token
+```
+
+
+Demo  Laravel Notification system.
+```php
+use Bogiesoft\Line\Facades\LineNotify;
+
+    $message = "\n\r"; 
+    $message.= 'รหัสสมาชิก : MB789456 '."\r\n"; 
+    $message.= 'ชื่อสมาชิก : คุณ เก่ง นครชัย'."\r\n" ; 
+    $message.= 'หมายเลขโทรศัพท์: 0000000000'."\r\n" ;        
+    $message.= 'ธนาคาร : กสิกรไทย'."\r\n" ; 
+    $message.= 'เลขที่บัญชี : 01234567891234566 '."\r\n" ; 
+    $message.= 'เงินฝากเปิดบัญชี : 0 '."\r\n" ;  
+    $message.= 'ช่องทางการสมัคร : APIs'."\r\n" ; 
+    $message.= 'ประเภทสมาชิก : ทั่วไป'."\r\n" ;  
+    $message.= 'ไลน์ไอดี : KengIT '."\r\n" ; 
+    
+    
+$arr_message = array(
+  'message' => $message,
+  'imageThumbnail' => 'https://www.boonsit.com/uploads/img/general/1631072863-logo.png',  // max size 240x240px JPEG
+  'imageFullsize' => 'https://www.boonsit.com/uploads/img/general/1631072863-logo.png', //max size 1024x1024px JPEG
+  'imageFile' => '',
+  'stickerPackageId' => '',
+  'stickerId' => ''
+ 
+    );
+
+$resNotify = LineNotify::withToken($token)->notify($params);
+
 ```
 
 Without Laravel Notification system.
@@ -146,3 +177,5 @@ $message = LineNotifyMessage::create('message');
 
 $res = LineNotify::withToken($token)->notify($message->toArray());
 ```
+
+
