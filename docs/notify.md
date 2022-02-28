@@ -164,7 +164,7 @@ $arr_message = array(
  
     );
 
-$resNotify = LineNotify::withToken($token)->notify($params);
+$resNotify = LineNotify::withToken($token)->notify($arr_message);
 
 ```
 
